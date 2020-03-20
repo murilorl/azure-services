@@ -30,9 +30,16 @@
 		<functionResourceGroup>rg-general</functionResourceGroup>
 		<start-class>com.mrlima.app.SpringAzFuncApp</start-class>
 		<wrapper.version>1.0.23.RELEASE</wrapper.version>
+		<kafka.version>2.4.1</kafka.version>
+		<confluent.version>5.3.0</confluent.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>${kafka.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-function-adapter-azure</artifactId>
@@ -41,6 +48,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-function-web</artifactId>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.confluent</groupId>
+			<artifactId>kafka-json-serializer</artifactId>
+			<version>${confluent.version}</version>
 		</dependency>
 
 		<!-- Test -->
@@ -195,6 +207,16 @@
 						<version>${wrapper.version}</version>
 					</dependency>
 				</dependencies>
+<!-- 				<configuration> -->
+<!-- 					<profiles> -->
+<!-- 						<profile>dev</profile> -->
+<!-- 					</profiles> -->
+<!-- 				</configuration> -->
+				<!-- <configuration> -->
+				<!-- <jvmArguments> -->
+				<!-- -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 -->
+				<!-- </jvmArguments> -->
+				<!-- </configuration> -->
 			</plugin>
 		</plugins>
 	</build>
@@ -227,7 +249,13 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>confluent</id>
+			<name>Confluent</name>
+			<url>http://packages.confluent.io/maven/</url>
+		</repository>
 	</repositories>
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-snapshots</id>

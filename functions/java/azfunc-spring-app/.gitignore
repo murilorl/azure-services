@@ -37,3 +37,7 @@ hs_err_pid*
 local.settings.json
 bin/
 obj/
+
+
+# Local application settings
+src/main/resources/application-dev.properties
