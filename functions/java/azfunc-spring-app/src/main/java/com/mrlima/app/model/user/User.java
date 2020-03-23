@@ -17,4 +17,10 @@ public class User extends BaseModel {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public String toJsonString() {
+		return super.toJsonString();
+	}
+
 }
