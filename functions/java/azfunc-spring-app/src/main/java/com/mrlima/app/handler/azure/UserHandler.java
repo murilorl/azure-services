@@ -14,7 +14,7 @@ import com.mrlima.app.model.user.User;
 
 public class UserHandler extends AzureSpringBootRequestHandler<User, User> {
 
-	@FunctionName("UserGet")
+	@FunctionName("userGet")
 	public User get(@HttpTrigger(name = "request", methods = { HttpMethod.GET,
 			HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS, route = "users") HttpRequestMessage<Optional<User>> request,
 			ExecutionContext context) {
@@ -32,7 +32,7 @@ public class UserHandler extends AzureSpringBootRequestHandler<User, User> {
 		return handleRequest(user, context);
 	}
 
-	@FunctionName("UserPublish")
+	@FunctionName("userPublish")
 	public User publish(@HttpTrigger(name = "request", methods = {
 			HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS, route = "users/pub") HttpRequestMessage<User> request,
 			ExecutionContext context) {

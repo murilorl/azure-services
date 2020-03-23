@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 import com.mrlima.app.model.user.User;
 
+
 public class UserPublish implements Function<User, User> {
 
 	@Override
