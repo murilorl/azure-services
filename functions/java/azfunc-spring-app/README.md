@@ -13,7 +13,7 @@ Before you deploy your application to Azure Function, let's first test it locall
 First you need to package your application into a Jar file:
 
 ```shell
-$ mvn clean package -Dspring.profiles.active=prod
+$ mvn clean package
 ```
 
 Now that the application is packaged, you can run it using the azure-functions Maven plugin:
@@ -31,7 +31,7 @@ curl http://localhost:7071/api/users -d "{\"name\":\"MyName\"}"
 or
 
 ```shell
-curl http://localhost:7071/api/users?name?name=MyName
+curl http://localhost:7071/api/users?name=MyName
 ```
 
 ### Debug the Function locally

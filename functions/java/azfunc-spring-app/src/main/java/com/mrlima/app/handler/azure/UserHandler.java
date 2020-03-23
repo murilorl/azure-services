@@ -32,4 +32,14 @@ public class UserHandler extends AzureSpringBootRequestHandler<User, User> {
 		return handleRequest(user, context);
 	}
 
+	@FunctionName("UserPublish")
+	public User publish(@HttpTrigger(name = "request", methods = {
+			HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS, route = "users/pub") HttpRequestMessage<User> request,
+			ExecutionContext context) {
+
+		context.getLogger().info(String.format("Request to publish user with data %s", request.getBody()));
+
+		return handleRequest(request.getBody(), context);
+	}
+
 }
