@@ -28,5 +28,5 @@ The body needs to be in the form of a 'Microsoft.AspNetCore.JsonPatch.JsonPatchD
     }
 ]
 ```
-Note the body is an array of operations, meaning it's posible to update more than one property at a time.
+Note the body is an array of operations, meaning it's posible to update more than one property wtih a single PATCH request.
 
